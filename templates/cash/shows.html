@@ -1,0 +1,16 @@
+{% extends "cash/base.html" %}
+
+{% block page_header %}
+    <h2>Shows</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <p><a href="{% url 'cash:new_show' %}" class="btn btn-danger" role="button">Add a new show</a></p>
+    <ul class=".list-group-flush">
+    {% for show in show_name %}
+        <li class="list-group-item"><a href="{% url 'cash:show' show.id %}" class="text-danger">{{ show }}</a></li>
+    {% empty %}
+        <li class="list-group-item">No shows have been added yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

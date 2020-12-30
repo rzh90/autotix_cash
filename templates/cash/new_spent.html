@@ -1,0 +1,19 @@
+{% extends "cash/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h2>Add cash spent at <a href="{% url 'cash:show' show_name.id %}">{{ show_name }}</a></h2>
+{% endblock page_header %}
+
+{% block content %}
+
+    <form action="{% url 'cash:new_spent' show_name.id %}" method='post'>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button name="submit" class="btn btn-danger">Add</button>
+            <a href="{% url 'cash:show' show_name.id %}" class="btn btn-secondary" role="button">Discard</a>
+        {% endbuttons %}
+    </form>
+    
+{% endblock content %}

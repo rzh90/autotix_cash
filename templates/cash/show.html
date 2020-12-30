@@ -1,0 +1,22 @@
+{% extends 'cash/base.html' %}
+
+{% block page_header %}
+    <h2>Cash spent at {{ show_name }}</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <p><a href="{% url 'cash:new_spent' show_name.id %}" class="btn btn-danger" role="button">Add new amount</a></p>
+
+    {% for spend in spent %}
+        <div class="card mb-3">
+            <h5 class="card-header">
+                {{ spend.date_added|date:'M d, Y H:i' }}
+                <small><a href="{% url 'cash:edit_spent' spend.id %}" class="text-danger">edit amount</a></small>
+            </h5>
+            <div class="card-body">${{ spend.amount }}</div>
+        </div>
+    {% empty %}
+        <p>No cash spent at this show yet.</p>
+    {% endfor %}
+
+{% endblock content %}

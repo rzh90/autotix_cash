@@ -1,0 +1,32 @@
+{% extends "cash/base.html" %}
+{% block page_header %}
+    <h2>About</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <p>An application for runners to track cash spent at theaters.</p>
+    <div class="card">
+        <h5 class="card-header">Information</h5>
+        <div class="card-body">
+            <h5 class="card-title">Current version: 1.0</h5>
+            <p class="card-text">Last updated 2020/12/24</p>
+        </div>
+    </div>
+
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <a class="btn text-danger collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Instructions
+                    </a>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    Instructions on how to use
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
