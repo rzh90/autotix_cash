@@ -9,10 +9,10 @@
     <form action="{% url 'cash:delete_spent' spent.id %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
+        <p>Are you sure you want to delete the amount of {{ spent }}?</p>
         {% buttons %}
-            <button name="submit" class="btn btn-danger">Save</button>
-            <a href="{% url 'cash:show' show_name.id %}" class="btn btn-secondary" role="button">Discard</a>
+            <button name="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'cash:show' show_name.id %}" class="btn btn-secondary" role="button">Cancel</a>
         {% endbuttons %}
     </form>
-
 {% endblock content %}

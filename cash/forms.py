@@ -15,3 +15,9 @@ class SpentForm(forms.ModelForm):
         model = Spent
         fields = ['amount']
         labels = {'amount': ''}
+
+
+class DeleteSpentForm(forms.ModelForm):
+    class Meta:
+        model = Spent
+        fields = []
