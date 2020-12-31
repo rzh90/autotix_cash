@@ -9,22 +9,47 @@
         <h5 class="card-header">Information</h5>
         <div class="card-body">
             <h5 class="card-title">Current version: 1.0</h5>
-            <p class="card-text">Last updated 2020/12/24</p>
+            <p class="card-text">Last updated 2020/12/31</p>
         </div>
     </div>
 
     <div id="accordion">
         <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="addNewShow">
                 <h5 class="mb-0">
-                    <a class="btn text-danger collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Instructions
+                    <a class="btn text-danger collapsed" data-toggle="collapse" data-target="#newShow" aria-expanded="false" aria-controls="newShow">
+                        Add a new show
                     </a>
                 </h5>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div id="newShow" class="collapse" aria-labelledby="addNewShow" data-parent="#accordion">
                 <div class="card-body">
-                    Instructions on how to use
+                    <ol>
+                        <li>Click <span class="text-danger">Shows</span> in the menu on the top of the page.</li>
+                        <li>Click <span class="btn btn-danger">Add a new show</span>.</li>
+                        <li>Select a show from the drop-down menu.</li>
+                        <li>Click <span class="btn btn-danger">Add</span>.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="addNewSpent">
+                <h5 class="mb-0">
+                    <a class="btn text-danger collapsed" data-toggle="collapse" data-target="#newSpent" aria-expanded="false" aria-controls="newSpent">
+                        Add cash spent
+                    </a>
+                </h5>
+            </div>
+            <div id="newSpent" class="collapse" aria-labelledby="addNewSpent" data-parent="#accordion">
+                <div class="card-body">
+                    <ol>
+                        <li>Click <span class="text-danger">Shows</span> in the menu on the top of the page.</li>
+                        <li>Click on a show. If there are no shows, follow the instructions above to add one.</li>
+                        <li>Click <span class="btn btn-danger">Add a new amount</span>.</li>
+                        <li>Enter the amount. Enter digits only.</li>
+                        <li>Click <span class="btn btn-danger">Add</span>.</li>
+                    </ol>
                 </div>
             </div>
         </div>
