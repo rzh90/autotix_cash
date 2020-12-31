@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 
-from .models import Show, Spent
 from .forms import ShowForm, SpentForm
+from .models import Show, Spent
 
 
 def index(request):
@@ -85,3 +86,14 @@ def edit_spent(request, spent_id):
 
     context = {'spent': spent, 'show_name': show_name, 'form': form}
     return render(request, 'cash/edit_spent.html', context)
+
+
+@login_required
+def delete_spent(request, spent_id):
+    spent = Spent.objects.get(id=spent_id)
+    show_name = spent.show
+    if show_name.owner != request.user:
+        raise Http404
+    else:
+        spent.delete()
+        return HttpResponseRedirect(reverse('cash:show', args = [show_name.id]))
