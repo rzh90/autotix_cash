@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 
 {% block page_header %}
-    <h2>Add cash spent at <a href="{% url 'cash:show' show_name.id %}">{{ show_name }}</a></h2>
+    <h2>Add cash spent at <a href="{% url 'cash:show' show_name.id %}" class="text-danger">{{ show_name }}</a></h2>
 {% endblock page_header %}
 
 {% block content %}

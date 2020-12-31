@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
@@ -23,7 +23,7 @@ def shows(request):
 
 @login_required
 def show(request, show_id):
-    show_name = Show.objects.get(id=show_id)
+    show_name = get_object_or_404(Show, id=show_id)
     if show_name.owner != request.user:
         raise Http404
 
