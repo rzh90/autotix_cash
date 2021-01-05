@@ -1,0 +1,18 @@
+{% extends "cash/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h2>Delete <a href="{% url 'cash:show' show_name.id %}" class="text-danger">{{ show_name }}</a></h2>
+{% endblock page_header %}
+
+{% block content %}
+    <form action="{% url 'cash:delete_show' show_name.id %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <p>Are you sure you want to delete {{ show_name }}? All of your cash entries will be deleted too.</p>
+        {% buttons %}
+            <button name="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'cash:shows' %}" class="btn btn-secondary" role="button">Cancel</a>
+        {% endbuttons %}
+    </form>
+{% endblock content %}

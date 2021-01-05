@@ -21,3 +21,9 @@ class DeleteSpentForm(forms.ModelForm):
     class Meta:
         model = Spent
         fields = []
+
+
+class DeleteShowForm(forms.ModelForm):
+    class Meta:
+        model = Show
+        fields = []

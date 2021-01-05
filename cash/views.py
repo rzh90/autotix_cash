@@ -3,7 +3,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 # from django.urls import reverse
 
-from .forms import ShowForm, SpentForm, DeleteSpentForm
+from .forms import ShowForm, SpentForm, DeleteSpentForm, DeleteShowForm
 from .models import Show, Spent
 
 
@@ -107,6 +107,24 @@ def delete_spent(request, spent_id):
 
     context = {'spent': spent, 'show_name': show_name, 'form': form}
     return render(request, 'cash/delete_spent.html', context)
+
+
+def delete_show(request, show_id):
+    show_name = Show.objects.get(id=show_id)
+
+    if show_name.owner != request.user:
+        raise Http404
+
+    if request.method == 'POST':
+        form = DeleteShowForm(request.POST, instance=show_name)
+        if form.is_valid():
+            show_name.delete()
+            return redirect('cash:shows')
+    else:
+        form = DeleteShowForm(instance=show_name)
+
+    context = {'show_name': show_name, 'form': form}
+    return render(request, 'cash/delete_show.html', context)
 
 
 """@login_required
