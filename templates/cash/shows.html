@@ -8,8 +8,9 @@
     <p><a href="{% url 'cash:new_show' %}" class="btn btn-danger" role="button">Add a new show</a></p>
     <ul class=".list-group-flush">
     {% for show in show_name %}
-        <li class="list-group-item"><a href="{% url 'cash:show' show.id %}" class="text-danger">{{ show }}</a>
-        <small><a href="{% url 'cash:delete_show' show.id %}" class="text-danger">delete</a></small></li>
+        <li class="list-group-item d-flex justify-content-between"><a href="{% url 'cash:show' show.id %}" class="text-danger">{{ show }}</a>
+            <a href="{% url 'cash:delete_show' show.id %}" class="btn btn-danger btn-sm">delete</a>
+        </li>
     {% empty %}
         <li class="list-group-item">No shows have been added yet.</li>
     {% endfor %}

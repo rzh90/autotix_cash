@@ -11,8 +11,8 @@
         <div class="card mb-3">
             <h5 class="card-header">
                 {{ spend.date_added|date:'M d, Y H:i' }}
-                <small><a href="{% url 'cash:edit_spent' spend.id %}" class="text-danger">edit</a> |
-                    <a href="{% url 'cash:delete_spent' spend.id %}" class="text-danger">delete</a></small>
+                <a href="{% url 'cash:edit_spent' spend.id %}" class="btn btn-secondary btn-sm">edit</a>
+                <a href="{% url 'cash:delete_spent' spend.id %}" class="btn btn-danger btn-sm">delete</a>
             </h5>
             <div class="card-body">${{ spend.amount }}</div>
         </div>
