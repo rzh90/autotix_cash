@@ -23,8 +23,8 @@ def shows(request):
 
 
 @login_required
-def show(request, show_id):
-    show_name = get_object_or_404(Show, id=show_id)
+def show(request, slug):
+    show_name = get_object_or_404(Show, slug=slug)
     if show_name.owner != request.user:
         raise Http404
 
@@ -50,8 +50,8 @@ def new_show(request):
 
 
 @login_required
-def new_spent(request, show_id):
-    show_name = Show.objects.get(id=show_id)
+def new_spent(request, slug):
+    show_name = Show.objects.get(slug=slug)
 
     if request.method != 'POST':
         form = SpentForm()
@@ -61,7 +61,7 @@ def new_spent(request, show_id):
             new_amount = form.save(commit=False)
             new_amount.show = show_name
             new_amount.save()
-            return redirect('cash:show', show_id=show_id)
+            return redirect('cash:show', slug=slug)
 
     context = {'show_name': show_name, 'form': form}
     return render(request, 'cash/new_spent.html', context)
@@ -82,7 +82,7 @@ def edit_spent(request, spent_id):
         form = SpentForm(instance=spent, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('cash:show', show_id=show_name.id)
+            return redirect('cash:show', slug=show_name.slug)
 
     context = {'spent': spent, 'show_name': show_name, 'form': form}
     return render(request, 'cash/edit_spent.html', context)
@@ -100,7 +100,7 @@ def delete_spent(request, spent_id):
         form = DeleteSpentForm(request.POST, instance=spent)
         if form.is_valid():
             spent.delete()
-            return redirect('cash:show', show_id=show_name.id)
+            return redirect('cash:show', slug=show_name.slug)
             # return HttpResponseRedirect('cash/index.html')
     else:
         form = DeleteSpentForm(instance=spent)
@@ -109,8 +109,8 @@ def delete_spent(request, spent_id):
     return render(request, 'cash/delete_spent.html', context)
 
 
-def delete_show(request, show_id):
-    show_name = Show.objects.get(id=show_id)
+def delete_show(request, slug):
+    show_name = Show.objects.get(slug=slug)
 
     if show_name.owner != request.user:
         raise Http404

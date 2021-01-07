@@ -5,7 +5,7 @@
 {% endblock page_header %}
 
 {% block content %}
-    <p><a href="{% url 'cash:new_spent' show_name.id %}" class="btn btn-danger" role="button">Add new amount</a></p>
+    <p><a href="{% url 'cash:new_spent' show_name.slug %}" class="btn btn-danger" role="button">Add new amount</a></p>
 
     {% for spend in spent %}
         <div class="card mb-3">
