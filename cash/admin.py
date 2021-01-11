@@ -5,7 +5,7 @@ from .models import Show, Spent
 
 # Register your models here.
 class ShowAdmin(admin.ModelAdmin):
-    list_display = ('show',)
+    list_display = ('show', 'slug', 'date_added')
     # prepopulated_fields = {'slug': ('show',)}
 
 
