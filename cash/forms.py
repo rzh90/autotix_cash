@@ -1,7 +1,6 @@
 from django import forms
 
 from .models import Show, Spent
-from autoslug import AutoSlugField
 
 
 class ShowForm(forms.ModelForm):
