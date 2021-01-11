@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from autoslug import AutoSlugField
 # from django.urls import reverse
 
 from .forms import ShowForm, SpentForm, DeleteSpentForm, DeleteShowForm
