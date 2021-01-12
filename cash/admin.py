@@ -9,5 +9,9 @@ class ShowAdmin(admin.ModelAdmin):
     # prepopulated_fields = {'slug': ('show',)}
 
 
+class SpentAdmin(admin.ModelAdmin):
+    list_display = ('date_added', 'amount', 'show')
+
+
 admin.site.register(Show, ShowAdmin)
-admin.site.register(Spent)
+admin.site.register(Spent, SpentAdmin)
