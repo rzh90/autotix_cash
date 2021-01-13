@@ -31,9 +31,6 @@ class Show(models.Model):
     def __str__(self):
         return self.get_show_display()
 
-    def get_absolute_url(self):
-        return reverse('cash:shows', kwargs={'slug': self.slug})
-
 
 class Spent(models.Model):
     show = models.ForeignKey(Show, on_delete=models.CASCADE)
