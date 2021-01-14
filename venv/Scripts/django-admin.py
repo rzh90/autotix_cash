@@ -1,4 +1,4 @@
-#!c:\users\ruina\desktop\projects\autotix_cash\venv\scripts\python.exe
+#!C:\Users\Ruina\Desktop\Projects\autotix_cash\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
