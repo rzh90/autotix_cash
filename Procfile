@@ -1,1 +1,1 @@
-web: gunicorn 'autotix_cash':app --log-file -
+web: gunicorn autotix_cash.wsgi --log-file -
